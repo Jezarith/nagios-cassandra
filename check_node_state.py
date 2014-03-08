@@ -23,6 +23,9 @@ if result.status_code != 200:
 
 age = int(result.text)
 
+if age > 0:
+    age = int(time.time()) - age
+
 if age > args.c:
     print('STATE CRITICAL: node %s was last seen %s seconds ago' % (args.H, age))
     sys.exit(2)
